@@ -19,9 +19,12 @@ public class Role {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String nom_role;
+
 	@OneToMany(mappedBy="role")
 	@JsonIgnore
 	private List<Utilisateur>  utilisateur;
+
+
 	public int getId() {
 		return id;
 	}
