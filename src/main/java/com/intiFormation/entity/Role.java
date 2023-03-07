@@ -1,10 +1,13 @@
 package com.intiFormation.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,9 +17,8 @@ public class Role {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String nom_role;
-	@OneToOne
-	@JoinColumn(name="id_utilisateur")
-	private Utilisateur utilisateur;
+	@OneToMany (mappedBy="role")
+	private List<Utilisateur> utilisateur;
 	public int getId() {
 		return id;
 	}
@@ -29,10 +31,11 @@ public class Role {
 	public void setNom_role(String nom_role) {
 		this.nom_role = nom_role;
 	}
-	public Utilisateur getUtilisateur() {
+	
+	public List<Utilisateur> getUtilisateur() {
 		return utilisateur;
 	}
-	public void setUtilisateur(Utilisateur utilisateur) {
+	public void setUtilisateur(List<Utilisateur> utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 	public Role() {
