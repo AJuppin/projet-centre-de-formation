@@ -5,10 +5,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Formateur extends Utilisateur {
 	
+
 	@OneToMany (mappedBy="formateur")
+	
 	private List<Formation> formations;
 
 	public List<Formation> getFormations() {
