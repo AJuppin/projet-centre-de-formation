@@ -6,7 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -14,7 +18,8 @@ public class Utilisateur extends Personne {
 	
 	private String username;
 	private String password;
-	@OneToOne (mappedBy="utilisateur")
+	@ManyToOne 
+	@JoinColumn(name="id_role")
 	private Role role;
 	
 	public String getUsername() {
