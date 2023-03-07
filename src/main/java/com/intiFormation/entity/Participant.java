@@ -8,10 +8,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Participant extends Utilisateur{
 	
 	@OneToMany (mappedBy="participant")
+	@JsonIgnore
 	private List<Paiement> paiements;
 	@ManyToMany
 	@JoinTable(name = "participant_formation",

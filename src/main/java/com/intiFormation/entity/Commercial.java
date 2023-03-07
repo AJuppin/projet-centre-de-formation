@@ -5,12 +5,16 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Commercial extends Utilisateur{
 	
 	@OneToMany (mappedBy="commercial")
+	@JsonIgnore
 	private List<Rdv> rdvs;
 	@OneToMany(mappedBy="commercial")
+	@JsonIgnore
 	private List<Historique> historiques;
 	
 	

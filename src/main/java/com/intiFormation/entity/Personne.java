@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Personne {
@@ -23,6 +25,7 @@ public class Personne {
 	private int age;
 	private String email;
 	@OneToMany (mappedBy="personne")
+	@JsonIgnore
 	private List<Rdv> rdvs;
 	@OneToOne 
 	@JoinColumn(name="id_historique")
