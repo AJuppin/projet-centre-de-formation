@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Formation {
@@ -32,6 +33,7 @@ public class Formation {
 	 private Date date_fin;
 	 
 	 @ManyToMany(mappedBy = "formations")
+	 @JsonIgnore
 	 private List<Participant> participants;
 	 
 	 @ManyToOne
@@ -39,6 +41,7 @@ public class Formation {
 	 private Formateur formateur;
 	 
 	 @ManyToMany(mappedBy = "formations")
+	 @JsonIgnore
 	 private List<Paiement> paiements;
 	 
 	 

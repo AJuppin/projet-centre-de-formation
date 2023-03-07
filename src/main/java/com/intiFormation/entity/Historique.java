@@ -29,7 +29,7 @@ public class Historique {
 	 private int statut;
 	 private String commentaire;
 	 @OneToOne (mappedBy="historique")
-		
+	 @JsonIgnore
 	 private Personne personne;
 	 @ManyToOne
 	 @JoinColumn(name="id_commercial")

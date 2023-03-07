@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 
 
 
-
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur extends Personne {

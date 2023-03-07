@@ -12,7 +12,7 @@ public class Formateur extends Utilisateur {
 	
 
 	@OneToMany (mappedBy="formateur")
-	
+	@JsonIgnore
 	private List<Formation> formations;
 
 	public List<Formation> getFormations() {
