@@ -6,6 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,7 +17,8 @@ public class Utilisateur extends Personne {
 	
 	private String username;
 	private String password;
-	@OneToOne (mappedBy="utilisateur")
+	@ManyToOne 
+	@JoinColumn(name="id_role")
 	private Role role;
 	
 	public String getUsername() {
