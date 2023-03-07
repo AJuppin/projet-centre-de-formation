@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Formateur extends Utilisateur {
 	
+
 	@OneToMany (mappedBy="formateur")
 	@JsonIgnore
 	private List<Formation> formations;
