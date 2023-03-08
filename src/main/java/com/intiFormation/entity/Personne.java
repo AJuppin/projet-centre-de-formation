@@ -8,9 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,9 +26,9 @@ public class Personne {
 	@OneToMany (mappedBy="personne")
 	@JsonIgnore
 	private List<Rdv> rdvs;
-	@OneToOne 
-	@JoinColumn(name="id_historique")
-	private Historique historique;
+	@OneToMany (mappedBy="personne")	
+	@JsonIgnore
+	private List<Historique> historiques;
 	
 	
 	
@@ -69,11 +68,14 @@ public class Personne {
 	public void setRdvs(List<Rdv> rdvs) {
 		this.rdvs = rdvs;
 	}
-	public Historique getHistorique() {
-		return historique;
+	
+	
+
+	public List<Historique> getHistoriques() {
+		return historiques;
 	}
-	public void setHistorique(Historique historique) {
-		this.historique = historique;
+	public void setHistoriques(List<Historique> historiques) {
+		this.historiques = historiques;
 	}
 	public Personne() {
 		super();

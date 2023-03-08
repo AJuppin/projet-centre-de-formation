@@ -63,7 +63,7 @@ public class PersonneController {
 		return personne;
 	}
 	
-	@GetMapping("/historiqueParPersonne/{id}")
+	/*@GetMapping("/historiqueParPersonne/{id}")
 	public Historique chercherHistorique(@PathVariable("id")int id)
 	{
 		
@@ -72,7 +72,7 @@ public class PersonneController {
 		Historique historique=personne.getHistorique();
 		
 		return historique;
-	}
+	}*/
 	
 	@GetMapping("/rdvParPersonne/{id}")
 	public List<Rdv> chercherRdv(@PathVariable("id")int id)

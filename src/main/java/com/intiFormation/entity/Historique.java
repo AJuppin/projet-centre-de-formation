@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Historique {
@@ -28,8 +28,8 @@ public class Historique {
 	 private Date date;
 	 private int statut;
 	 private String commentaire;
-	 @OneToOne (mappedBy="historique")
-	 @JsonIgnore
+	 @OneToOne
+	 @JoinColumn(name="id_personne")
 	 private Personne personne;
 	 @ManyToOne
 	 @JoinColumn(name="id_commercial")

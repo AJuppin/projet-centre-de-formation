@@ -12,29 +12,47 @@ public class Commercial extends Utilisateur{
 	
 	@OneToMany (mappedBy="commercial")
 	@JsonIgnore
-	private List<Rdv> rdvs;
+	private List<Rdv> rdvsCommercial;
 	@OneToMany(mappedBy="commercial")
 	@JsonIgnore
-	private List<Historique> historiques;
+	private List<Historique> historiquesCommercial;
 	
 	
 
 
-	public List<Historique> getHistoriques() {
-		return historiques;
-	}
-	public void setHistoriques(List<Historique> historiques) {
-		this.historiques = historiques;
+	
+	public List<Rdv> getRdvsCommercial() {
+		return rdvsCommercial;
 	}
 
-	
-	
-	public List<Rdv> getRdvs() {
-		return rdvs;
+
+
+
+
+	public void setRdvsCommercial(List<Rdv> rdvsCommercial) {
+		this.rdvsCommercial = rdvsCommercial;
 	}
-	public void setRdvs(List<Rdv> rdvs) {
-		this.rdvs = rdvs;
+
+
+
+
+
+	public List<Historique> getHistoriquesCommercial() {
+		return historiquesCommercial;
 	}
+
+
+
+
+
+	public void setHistoriquesCommercial(List<Historique> historiquesCommercial) {
+		this.historiquesCommercial = historiquesCommercial;
+	}
+
+
+
+
+
 	public Commercial() {
 		super();
 		// TODO Auto-generated constructor stub
