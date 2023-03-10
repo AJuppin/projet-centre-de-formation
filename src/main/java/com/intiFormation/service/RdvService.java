@@ -36,5 +36,10 @@ public class RdvService implements IrdvService {
 	{
 		return rdvDao.findById(id).get();
 	}
+	
+	public List<Rdv> selectRdvByIdPersonne(int id)
+	{
+		return rdvDao.findByPersonne_Id(id);
+	}
 
 }

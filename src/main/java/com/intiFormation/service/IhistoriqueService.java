@@ -13,5 +13,7 @@ public interface IhistoriqueService {
 	public void suppr(int id);
 	
 	public Historique selectById(int id);
+	
+	public List<Historique> historiquesByIdPersonne(int id);
 
 }
