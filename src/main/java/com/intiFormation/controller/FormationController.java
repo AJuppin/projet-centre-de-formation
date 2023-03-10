@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.intiFormation.entity.Formateur;
 import com.intiFormation.entity.Formation;
+
 import com.intiFormation.entity.Participant;
+
 import com.intiFormation.service.FormateurServiceInterface;
 import com.intiFormation.service.FormationServiceInterface;
 import com.intiFormation.service.IParticipantService;
@@ -32,9 +34,11 @@ public class FormationController {
 	
 	@Autowired
 	private FormateurServiceInterface formateurService;
+
 	
 	@Autowired
 	private IParticipantService participantService;
+
 	
 	//afficher tous les formations
 		@GetMapping("/formations")
@@ -111,4 +115,5 @@ public class FormationController {
 			formationService.supprimerFormation(id);
 		}
 
+		
 }
