@@ -1,5 +1,6 @@
 package com.intiFormation.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.intiFormation.entity.Historique;
+import com.intiFormation.entity.Participant;
 import com.intiFormation.entity.Personne;
 import com.intiFormation.entity.Rdv;
 import com.intiFormation.service.IPersonneService;
@@ -33,8 +35,16 @@ public class PersonneController {
 	
 	{
 		List<Personne> personne=personneService.chercherPersonnes();
+		List<Personne> personnes2=new ArrayList<>();
+		for(Personne p:personne)
+		{
+			if(!(p instanceof Participant))
+			{
+				personnes2.add(p);
+			}
+		}
 		
-		return personne;
+		return personnes2;
 	}
 	
 	@PostMapping("/personnes")

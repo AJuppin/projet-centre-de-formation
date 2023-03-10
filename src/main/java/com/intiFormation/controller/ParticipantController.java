@@ -37,11 +37,36 @@ public class ParticipantController {
 		return participant;
 	}
 	
+	
+	
 	@PostMapping("/participants")
 	public void ajouter(@RequestBody Participant p)
 	{
 		participantService.inserer(p);
 	}
+	
+	
+	
+	
+	
+	
+	@PostMapping("/modifierPersonneParticipants/{id}")
+	public void modifierPersonneParticipant(@PathVariable("id")int id)
+	{
+		participantService.modifierPersonneParticipant(id);
+	}
+	
+	
+	@PostMapping("/modifierPersonneUtilisateurs/{id}")
+	public void modifierPersonneUtilisateur(@PathVariable("id")int id)
+	{
+		participantService.modifierPersonneUtilisateur(id);
+	}
+	
+	
+	
+	
+	
 	
 	@DeleteMapping("/participants/{id}")
 	public void supprimer(@PathVariable("id")int id)
