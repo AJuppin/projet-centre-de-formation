@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.intiFormation.dao.HistoriqueDao;
 import com.intiFormation.dao.PersonneDao;
 import com.intiFormation.entity.Historique;
-import com.intiFormation.entity.Utilisateur;
+
 
 
 @Service

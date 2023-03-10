@@ -12,7 +12,7 @@ import com.intiFormation.dao.RdvDao;
 import com.intiFormation.entity.Historique;
 import com.intiFormation.entity.Personne;
 import com.intiFormation.entity.Rdv;
-import com.intiFormation.entity.Utilisateur;
+
 
 @Service
 public class PersonneService implements IPersonneService {
