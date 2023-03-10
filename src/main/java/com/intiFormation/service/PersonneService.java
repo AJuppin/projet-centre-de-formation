@@ -6,8 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.intiFormation.dao.HistoriqueDao;
 import com.intiFormation.dao.PersonneDao;
+import com.intiFormation.dao.RdvDao;
+import com.intiFormation.entity.Historique;
 import com.intiFormation.entity.Personne;
+import com.intiFormation.entity.Rdv;
+import com.intiFormation.entity.Utilisateur;
 
 @Service
 public class PersonneService implements IPersonneService {
@@ -16,6 +21,12 @@ public class PersonneService implements IPersonneService {
 	@Autowired
 	PersonneDao personneDao;
 	
+	@Autowired
+	HistoriqueDao historiqueDao;
+	
+	@Autowired
+	RdvDao rdvDao;
+	
 
 
 	public void inserer(Personne p)
@@ -23,10 +34,42 @@ public class PersonneService implements IPersonneService {
 		personneDao.save(p);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void supp(int id)
-	{
+	{	
+		List<Historique> historiques=historiqueDao.findByPersonne_Id(id);
+		List<Rdv> rdvs=rdvDao.findByPersonne_Id(id);
+		
+		for(int i=0;i<historiques.size();i++)
+	    {
+	    	 Historique h=historiques.get(i);
+	    	 historiqueDao.delete(h);
+	    }
+		
+		for(int i=0;i<rdvs.size();i++)
+	    {
+	    	 Rdv r=rdvs.get(i);
+	    	 rdvDao.delete(r);
+	    }
+		
 		personneDao.deleteById(id);
 	}
+	
+	
+
+	
+	
+	
 	
 	public void modif(Personne p)
 	{

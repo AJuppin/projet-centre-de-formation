@@ -39,6 +39,16 @@ public class HistoriqueController {
 		return historique;
 	}
 	
+	@GetMapping("/historiquesByIdPersonne/{id}")
+	public List<Historique> selectHistoriqueByIdPersonne(@PathVariable("id") int id)
+	{
+		List<Historique> historiques=ihistoriqueService.historiquesByIdPersonne(id);
+		return historiques;
+	}
+	
+	
+	
+	
 	@PostMapping("/historiques")
 	public void ajouter(@RequestBody Historique h)
 	{

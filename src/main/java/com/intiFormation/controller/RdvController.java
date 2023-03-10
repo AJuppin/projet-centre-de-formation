@@ -41,6 +41,13 @@ public class RdvController {
 		return rdv;
 	}
 	
+	@GetMapping("/rdvsByIdPersonne/{id}")
+	public List<Rdv> selectRdvByIdPersonne(@PathVariable("id") int id)
+	{
+		List<Rdv> rdvs=irdvService.selectRdvByIdPersonne(id);
+		return rdvs;
+	}
+	
 	@PostMapping("/rdvs")
 	public void ajouter(@RequestBody Rdv r)
 	{
