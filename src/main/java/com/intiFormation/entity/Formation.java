@@ -26,10 +26,10 @@ public class Formation {
 	 private String nom;
 	 private int prix;
 	 @Temporal(TemporalType.DATE)
-	 @JsonFormat(pattern = "yyyy-MM-dd")
+	 @JsonFormat(pattern = "dd/MM/yyyy")
 	 private Date date_debut;
 	 @Temporal(TemporalType.DATE)
-	 @JsonFormat(pattern = "yyyy-MM-dd")
+	 @JsonFormat(pattern = "dd/MM/yyyy")
 	 private Date date_fin;
 	 
 	 @ManyToMany(mappedBy = "formations")

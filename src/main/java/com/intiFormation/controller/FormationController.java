@@ -1,6 +1,7 @@
 package com.intiFormation.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.intiFormation.entity.Formateur;
 import com.intiFormation.entity.Formation;
+
+import com.intiFormation.entity.Participant;
+
+import com.intiFormation.service.FormateurServiceInterface;
 import com.intiFormation.service.FormationServiceInterface;
+import com.intiFormation.service.IParticipantService;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -26,7 +32,13 @@ public class FormationController {
 	@Autowired
 	private FormationServiceInterface formationService;
 	
+	@Autowired
+	private FormateurServiceInterface formateurService;
+
 	
+	@Autowired
+	private IParticipantService participantService;
+
 	
 	//afficher tous les formations
 		@GetMapping("/formations")
@@ -37,6 +49,27 @@ public class FormationController {
 		}
 		
 		
+		//chercher la liste des formation par id formateur
+		@GetMapping("/formationsParFormateurs/{id}")
+		public List<Formation> afficherFormationParFormateur(@PathVariable("id") int id)
+		{
+			List<Formation> listFormation=null;
+			Optional<Formateur> f=formateurService.selectFormateurById(id);
+			listFormation=f.get().getFormations();
+			formationService.afficherAllFormation();
+			return listFormation;
+		}
+		
+		
+		@GetMapping("/participantParFormation/{id}")
+		public List<Participant> afficherParticipantsParFormations(@PathVariable("id") int id)
+		{
+			List<Participant> listeP=null;
+			Optional<Formation> f=formationService.selectFormationById(id);
+			listeP=f.get().getParticipants();
+			participantService.SelectAll();
+			return listeP;
+		}
 		
 		//chercher une formation avec son id
 		@GetMapping("/formations/{id}")
@@ -82,4 +115,5 @@ public class FormationController {
 			formationService.supprimerFormation(id);
 		}
 
+		
 }
