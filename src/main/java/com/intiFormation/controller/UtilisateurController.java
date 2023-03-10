@@ -3,6 +3,7 @@ package com.intiFormation.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -56,6 +57,11 @@ public class UtilisateurController {
 		utilisateurService.ajouter(u);
 	}
 	
+	@DeleteMapping("/utilisateur/{id}")
+	public void supprimer(@PathVariable("id")int id)
+	{
+		utilisateurService.supp(id);
+	}
 	
 	
 	
