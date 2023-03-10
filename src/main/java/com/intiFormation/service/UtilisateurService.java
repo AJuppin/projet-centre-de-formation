@@ -26,8 +26,12 @@ public class UtilisateurService implements IUtilisateurservice {
 		
 		return utilisateur;
 		
-		
 	}
+		public void supp(int id)
+		{
+			utilisateurDao.deleteById(id);
+		}
+	
 	
 	public Utilisateur chercherParUsername(String username)
 	{
