@@ -14,4 +14,6 @@ public interface IrdvService {
 	public void suppr(int id);
 	
 	public Rdv selectById(int id);
+	
+	public List<Rdv> selectRdvByIdPersonne(int id);
 }
