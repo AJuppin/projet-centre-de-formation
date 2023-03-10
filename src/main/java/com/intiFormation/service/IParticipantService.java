@@ -21,4 +21,8 @@ public interface IParticipantService {
 	public List<Participant> SelectAll();
 	
 	public Participant chercherUn(int id);
+	
+	 public void modifierPersonneParticipant(int id);
+	 
+	 public void modifierPersonneUtilisateur(int id);
 }

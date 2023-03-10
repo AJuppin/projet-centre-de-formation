@@ -3,6 +3,9 @@ package com.intiFormation.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +42,15 @@ public class ParticipantService implements IParticipantService {
 {
 	return participantDao.findById(id).get();
 	
-}
+}	
+    public void modifierPersonneParticipant(int id)
+    {
+    	participantDao.modifierPersonneParticipant(id);
+    }
+    
+    public void modifierPersonneUtilisateur(int id)
+    {
+    	participantDao.modifierPersonneUtilisateur(id);
+    }
 
 }
