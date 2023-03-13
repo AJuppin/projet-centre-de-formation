@@ -32,7 +32,7 @@ public class UtilisateurController {
 	
 	
 	
-	@GetMapping("/utilisateur")
+	@GetMapping("/utilisateurs")
 	public List<Utilisateur> getAll()
 	
 	{
@@ -41,7 +41,19 @@ public class UtilisateurController {
 		return utilisateur;
 	}
 	
-	@PostMapping("/utilisateur")
+	@GetMapping("/utilisateurs/{username}")
+	public Utilisateur getByUsername(@PathVariable("username") String username)
+	
+	{
+		Utilisateur utilisateur=utilisateurService.chercherParUsername(username);
+		
+		return utilisateur;
+	}
+	
+	
+	
+	
+	@PostMapping("/utilisateurs")
 	public void ajouter(@RequestBody Utilisateur u)
 	{
 		utilisateurService.ajouter(u);
@@ -50,7 +62,7 @@ public class UtilisateurController {
 	
 
 	
-	@PutMapping("/utilisateur")
+	@PutMapping("/utilisateurs")
 	public void modifier(@RequestBody Utilisateur u)
 	{
 		utilisateurService.ajouter(u);
