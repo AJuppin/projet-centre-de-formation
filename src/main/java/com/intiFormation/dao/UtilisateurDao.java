@@ -15,4 +15,6 @@ public interface UtilisateurDao extends JpaRepository<Utilisateur, Integer> {
 	//@Query("select r from Role r where r.nom_role =:role")
 	public List<Utilisateur> findByRole_Id (int id);
 	
+	
+	
 }

@@ -3,6 +3,7 @@ package com.intiFormation.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,7 +33,7 @@ public class UtilisateurController {
 	
 	
 	
-	@GetMapping("/utilisateur")
+	@GetMapping("/utilisateurs")
 	public List<Utilisateur> getAll()
 	
 	{
@@ -41,7 +42,19 @@ public class UtilisateurController {
 		return utilisateur;
 	}
 	
-	@PostMapping("/utilisateur")
+	@GetMapping("/utilisateurs/{username}")
+	public Utilisateur getByUsername(@PathVariable("username") String username)
+	
+	{
+		Utilisateur utilisateur=utilisateurService.chercherParUsername(username);
+		
+		return utilisateur;
+	}
+	
+	
+	
+	
+	@PostMapping("/utilisateurs")
 	public void ajouter(@RequestBody Utilisateur u)
 	{
 		utilisateurService.ajouter(u);
@@ -50,12 +63,17 @@ public class UtilisateurController {
 	
 
 	
-	@PutMapping("/utilisateur")
+	@PutMapping("/utilisateurs")
 	public void modifier(@RequestBody Utilisateur u)
 	{
 		utilisateurService.ajouter(u);
 	}
 	
+	@DeleteMapping("/utilisateur/{id}")
+	public void supprimer(@PathVariable("id")int id)
+	{
+		utilisateurService.supp(id);
+	}
 	
 	
 	

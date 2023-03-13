@@ -10,5 +10,6 @@ public interface IUtilisateurservice {
 	public void ajouter(Utilisateur u);
 	public boolean verifierUsername(Utilisateur u);
 	public List<Utilisateur>selectAll();
+	public void supp(int id);
 
 }

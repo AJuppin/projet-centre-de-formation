@@ -9,6 +9,8 @@ import com.intiFormation.entity.Formateur;
 public interface FormateurDao extends JpaRepository<Formateur, Integer> {
 	
 	public Optional<Formateur> findByNom(String nom);
+	
+	
 
 
 }
