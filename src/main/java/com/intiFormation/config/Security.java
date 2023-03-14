@@ -44,6 +44,8 @@ public class Security extends WebSecurityConfigurerAdapter {
 		authorizeRequests()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
 		.antMatchers("/loginUserJwt").permitAll()
+		.antMatchers("/api/formations").permitAll()
+		.antMatchers("/api/commerciaux").permitAll()
 		.anyRequest().authenticated()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().addFilterBefore(requestFilter, UsernamePasswordAuthenticationFilter.class)
